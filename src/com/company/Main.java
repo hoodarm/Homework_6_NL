@@ -10,7 +10,7 @@ public class Main
         System.out.println("sym diff: " + symDiff(a, b));
     }
 
-    static String symDiff(int[] a, int[] b)
+    static String findingVal(int[] a, int[] b)
     {
         String result = "";
         for (int element : a)
@@ -27,21 +27,14 @@ public class Main
             if (!found)
                 result = result + element + " ";
         }
-        for (int element : b)
-        {
-            boolean found = false;
-            for (int el : a)
-            {
-                if (el == element)
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found)
-                result = result + element + " ";
-        }
-        result = result.trim();
+        result=result.trim();
         return result;
+    }
+
+    static String symDiff(int[] a, int[] b)
+    {
+        String x = findingVal(a, b);
+        String y = findingVal(b, a);
+        return x + " " + y;
     }
 }
